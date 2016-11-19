@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:alpine
 MAINTAINER unicorn research ltd.
 
 RUN npm install -g webpack -g mocha -g node-sass -g yarn
