@@ -1,4 +1,5 @@
-FROM node:latest
+FROM node:alpine
 MAINTAINER unicorn research ltd.
 
-RUN npm install -g webpack -g mocha -g node-sass
+RUN apk --no-cache add bash
+RUN npm install -g webpack -g webpack-cli
