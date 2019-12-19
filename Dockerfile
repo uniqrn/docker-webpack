@@ -1,5 +1,11 @@
-FROM node:alpine
+FROM node:buster-slim
 MAINTAINER unicorn research ltd.
 
-RUN apk --no-cache add bash
-RUN npm install -g webpack -g webpack-cli
+COPY package.json /root/npm/package.json
+WORKDIR /root/npm
+
+RUN npm install
+
+WORKDIR /opt
+ENV PATH /root/npm/node_modules/.bin:$PATH
+ENV NODE_PATH /root/npm/node_modules
