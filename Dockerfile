@@ -5,7 +5,8 @@ LABEL maintainer "unicorn research Ltd"
 COPY package.json /root/npm/package.json
 WORKDIR /root/npm
 
-RUN npm install
+RUN npm install \
+    && ln -s /root/npm/node_modules /node_modules
 
 WORKDIR /opt
 ENV PATH /root/npm/node_modules/.bin:$PATH
